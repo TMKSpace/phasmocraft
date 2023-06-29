@@ -34,7 +34,7 @@ public class Phasmo implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Phasmocraft! Boo!");
 		ItemGroupEvents.modifyEntriesEvent(PHASMO_GROUP).register(content -> {
 			content.add(EMF_METER);
 			content.add(UV_FLASHLIGHT);

@@ -13,7 +13,8 @@ public class emf_meter extends Item {
     public emf_meter(Settings settings) {
         super(settings);
     }
-    public float EMF = 4;
+    public float EMF = 0;
+    public boolean EMF_On = false;
 
     public void setEMF(float emf){
         this.EMF = emf;
@@ -21,10 +22,10 @@ public class emf_meter extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-        playerEntity.playSound(SoundEvents.BLOCK_ANVIL_PLACE, 1.0F, 1.0F);
-        setEMF(EMF+0.05f);
-        if(EMF>0.6f){EMF=0.0f;}
-        playerEntity.sendMessage(Text.literal("EMF: "+EMF));
+        playerEntity.playSound(SoundEvents.UI_TOAST_IN, 1.0F, 2.0F);
+        if (!EMF_On) {setEMF(0.1f); playerEntity.sendMessage(Text.literal("EMF On")); EMF_On = true;} else {setEMF(0); playerEntity.sendMessage(Text.literal("EMF Off")); EMF_On = false;}
+        //if(EMF>0.6f){EMF=0.0f;}
+        //playerEntity.sendMessage(Text.literal("EMF: "+EMF));
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
 }
