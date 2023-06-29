@@ -1,0 +1,6 @@
+{
+	"parent": "phasmocraft:item/emf_meter",
+	"textures": {
+		"0": "phasmocraft:item/emf_meter/emf_5"
+	}
+}
